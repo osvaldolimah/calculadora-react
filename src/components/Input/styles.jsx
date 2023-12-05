@@ -13,14 +13,15 @@ export const InputContainer = styled.div `
     input {
         width: 100%;
         height: 75px;
-        background-color:#AAFFAA;
-        border: 0;
+        background-color:#222522;
+        border: 1px solid darkgray;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         padding: 0 10px;
         font-family: 'Roboto', sans-serif;
         font-size: 24px;
+        color: #fff
 
     }
 
