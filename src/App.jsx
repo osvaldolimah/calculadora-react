@@ -4,12 +4,23 @@ import Button from './components/Button'
 import { useState } from "react"
 
 function App() {
- const [currentNumber, setCurrentNumber] = useState(0) ;
-
- const handleAddNumber = (num) => setCurrentNumber(prev => `${num}${prev ==='0' ? '' : prev}`)
+ const [currentNumber, setCurrentNumber] = useState('0') ;
+ const [firstNumber, setFirstNumber] = useState('0');
 
  const handleClear = () => {
   setCurrentNumber('0');
+ }
+ 
+ const handleAddNumber = (num) => setCurrentNumber(prev => `${num}${prev ==='0' ? '' : prev}`)
+
+ const handleSumNumbers = () => {
+    if(firstNumber === '0') {
+      setFirstNumber(currentNumber);
+      handleClear();
+    } else {
+      const sum = Number(firstNumber) + Number(currentNumber);
+      setCurrentNumber(String(sum));
+    }
  }
 
   return (
@@ -33,7 +44,7 @@ function App() {
         <Button label="4" onClick={() => handleAddNumber('4')}/>
         <Button label="5" onClick={() => handleAddNumber('5')}/>
         <Button label="6" onClick={() => handleAddNumber('6')}/>
-        <Button label="+" onClick={() => handleAddNumber('+')}/>
+        <Button label="+" onClick={handleSumNumbers}/>
         </Row>
         <Row>
         <Button label="1" onClick={() => handleAddNumber('1')}/>
